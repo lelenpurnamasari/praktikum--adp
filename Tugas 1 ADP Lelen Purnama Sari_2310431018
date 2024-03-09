@@ -1,0 +1,60 @@
+program perkaliansederhana;
+uses crt;
+var
+  x,y,hasil:real;
+begin
+  clrscr();
+  writeln('Nama = Lelen Purnama Sari ');
+  writeln('Nim = 2310431018');
+  writeln('==============>');
+  WriteLn('"Program Perkalian Sederhana"');
+  Write('Masukkan Nilai x = ');
+  readln(x);
+  Write('Masukkan Nilai y = ');
+  ReadLn(y);
+  writeln('---------------');
+  hasil := x * y;
+  writeln('hasil perkalian = x * y = ',hasil);
+end.
+
+
+program menghitungvolumebola;
+uses crt;
+const
+  phi = 3.14;
+var
+  r,volume:real;
+begin
+  clrscr();
+  writeln('Nama = Lelen Purnama Sari ');
+  writeln('Nim = 2310431018');
+  writeln('==============>');
+  WriteLn('"Program Menghitung Volume Bola"');
+  writeln('phi = 3.14');
+  write('Masukkan jari-jari bola = ');
+  readln(r);
+  writeln('---------------');
+  volume := 4/3 * phi * r * r * r;
+  WriteLn('Volume bola = ',volume); 
+end.
+
+program menghitungluaspermukaanbalok;
+uses crt;
+var
+  p,l,t,luas:real;
+begin
+  clrscr();
+  writeln('Nama = Lelen Purnama Sari ');
+  writeln('Nim = 2310431018');
+  writeln('==============>');
+  WriteLn('"Program Menghitung Luas Permukaan Balok"');
+  write('Masukkan panjang balok = ');
+  readln(p);
+  write('Masukkan lebar balok = ');
+  readln(l);
+  write('Masukkan tinggi balok = ');
+  readln(t);
+  writeln('---------------');
+  Luas := 2*(p*l+p*t+l*t);
+  WriteLn('Luas permukaan balok = ',luas);
+end.
