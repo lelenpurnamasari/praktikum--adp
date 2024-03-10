@@ -1,0 +1,20 @@
+program perkaliansederhana;
+var
+  x,y,hasil:real;
+begin
+  clrscr();
+  writeln('Nama = Lelen Purnama Sari ');
+  writeln('Nim = 2310431018');
+  writeln('==============>');
+  WriteLn('"Program Perkalian Sederhana"');
+  Write('Masukkan Nilai x = ');
+  readln(x);
+  Write('Masukkan Nilai y = ');
+  ReadLn(y);
+  writeln('---------------');
+  hasil := x * y;
+  writelnprogram perkaliansederhana;
+uses crt;
+var
+  ('hasil perkalian = x * y = ',hasil);
+end.
