@@ -1,0 +1,59 @@
+print('Nama : Lelen Purnama Sari')
+print('Nim : 2310431018')
+print('=====================')
+def tampilkan_menu_makanan():
+    print('--------Menu Makanan--------')
+    print('1. Ayam Geprek - Rp. 25.000')
+    print('2. Pecal Lele - Rp. 25.000')
+    print('3. Martabak Mesir - Rp. 20.000')
+    print ('..................................')
+def tampilkan_menu_minuman():
+    print('--------Menu Minuman--------')
+    print('1. Es Teh - Rp. 5.000')
+    print('2. Cappucino Cincau - Rp. 10.000')
+    print('3. Smothies - Rp. 15.000')
+    print ('..................................')
+def pesan_makanan():
+    tampilkan_menu_makanan()
+    pilihan_makanan = int(input('Pilih nomor makanan yang diinginkan: '))
+    if pilihan_makanan < 1 or pilihan_makanan > 3:
+        print('Kode Makanan Tidak Valid!')
+        return
+    jumlah_makanan = int(input('Masukkan jumlah makanan yang ingin dipesan: '))
+    if pilihan_makanan == 1:
+        total_harga = jumlah_makanan * 25000
+    elif pilihan_makanan == 2:
+        total_harga = jumlah_makanan * 25000
+    else:
+        total_harga = jumlah_makanan * 20000
+    print('Pesanan:', jumlah_makanan, 'makanan')
+    print('Total Harga: Rp.', total_harga)
+def pesan_minuman():
+    tampilkan_menu_minuman()
+    pilihan_minuman = int(input('Pilih nomor minuman yang diinginkan: '))
+    if pilihan_minuman < 1 or pilihan_minuman > 3:
+        print('Kode Minuman Tidak Valid!')
+        return
+    jumlah_minuman = int(input('Masukkan jumlah minuman yang ingin dipesan: '))
+    if pilihan_minuman == 1:
+        total_harga = jumlah_minuman * 5000
+    elif pilihan_minuman == 2:
+        total_harga = jumlah_minuman * 10000
+    else:
+        total_harga = jumlah_minuman * 15000
+    print('Pesanan:', jumlah_minuman, 'minuman')
+    print('Total Harga: Rp.', total_harga)
+print('--->Selamat Datang Di Restoran LPS<---')
+print('[1] Makanan')
+print('[2] Minuman')
+print('[3] Makanan dan Minuman')
+pilihan = int(input('Silahkan pilih jenis pesanan (1/2/3): '))
+if pilihan == 1:
+    pesan_makanan()
+elif pilihan == 2:
+    pesan_minuman()
+elif pilihan == 3:
+    pesan_makanan()
+    pesan_minuman()
+else:
+    print('Kode Pesanan Tidak Valid!')
