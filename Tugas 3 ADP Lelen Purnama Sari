@@ -1,0 +1,61 @@
+print("Nama : Lelen Purnama Sari")
+print("Nim : 2310431018")
+print("-----------------------------------")
+def print_menu():
+    """Prints the menu."""
+    print("\nMENU:")
+    print("1. Tabel perkalian n x n")
+    print("2. Tabel penjumlahan n x n")
+    print("3. Keluar")
+
+def get_user_choice():
+    """Gets the user's choice from the menu."""
+    while True:
+        try:
+            choice = int(input("Masukkan pilihan Anda (1-3): "))
+            if 1 <= choice <= 3:
+                return choice
+            else:
+                print("Input tidak valid. Silahkan masukkan angka 1, 2, atau 3.")
+        except ValueError:
+            print("Input tidak valid. Silahkan masukkan angka 1, 2, atau 3.")
+
+def create_multiplication_table(n):
+    """Creates a multiplication table of size n x n."""
+    for i in range(1, n + 1):
+        print(f"{' ' * 3}{i} ", end='')
+        for j in range(1, n + 1):
+            print(f"{i * j:4} ", end='')
+        print()
+
+def create_addition_table(n):
+    """Creates an addition table of size n x n."""
+    for i in range(1, n + 1):
+        print(f"{' ' * 3}{i} ", end='')
+        for j in range(1, n + 1):
+            print(f"{i + j:4} ", end='')
+        print()
+
+def main():
+    """Runs the main program loop."""
+    while True:
+        print_menu()
+        choice = get_user_choice()
+
+        if choice == 1:
+            n = int(input("Masukkan nilai n (1-10): "))
+            if 1 <= n <= 10:
+                create_multiplication_table(n)
+            else:
+                print("Input tidak valid. n harus antara 1 dan 10.")
+        elif choice == 2:
+            n = int(input("Masukkan nilai n (1-10): "))
+            if 1 <= n <= 10:
+                create_addition_table(n)
+            else:
+                print("Input tidak valid. n harus antara 1 dan 10.")
+        elif choice == 3:
+            break
+
+if __name__ == "__main__":
+    main()
