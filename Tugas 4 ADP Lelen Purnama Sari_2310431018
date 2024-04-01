@@ -1,0 +1,72 @@
+def is_perfect_number(angka):
+    faktor = [i for i in range(1, angka) if angka % i == 0]
+    if sum(faktor) == angka:
+        return True
+    else:
+        return False
+
+def check_even_odd(angka):
+    
+    if angka % 2 == 0:
+        return "genap"
+    else:
+        return "ganjil"
+
+def main():
+    print("Nama : Lelen Purnama Sari")
+    print("Nim : 2310431018")
+    print("------------------------------------------------------------")
+    print("Selamat datang di program pendeteksi bilangan sempurna dan genap atau ganjil!")
+    print("------------------------------------------------------------")
+    print("Silahkan masukkan bilangan bulat positif yang ingin di periksa.")
+
+    while True:
+        try:
+            angka = int(input("Masukkan bilangan bulat positif: "))
+            if angka <= 0:
+                print("Maaf, bilangan yang di masukkan harus bilangan bulat positif.")
+                continue
+            break
+        except ValueError:
+            print("Maaf, input yang di masukkan bukan bilangan bulat positif. Silakan coba lagi.")
+
+    if is_perfect_number(angka):
+        print(f"{angka} adalah bilangan sempurna dan bilangan {check_even_odd(angka)}!")
+    else:
+        print(f"{angka} bukan bilangan sempurna, tetapi bilangan {check_even_odd(angka)}.")
+
+if __name__ == "__main__":
+    main()
+
+program PolaSegitigaAngka;
+uses crt;
+var
+  tinggi, i, j: integer;
+
+begin
+  clrscr;
+  WriteLn('Nama : Lelen Purnama Sari');
+  WriteLn('Nim : 2310431018');
+  WriteLn('-------------------------------------------------');
+  WriteLn('| Selamat Datang di Program Pola Segitiga Angka |');
+  WriteLn('-------------------------------------------------');
+  WriteLn('Silahkan Masukkan Tinggi Segitiga yang di Inginkan');
+  write('Masukkan tinggi segitiga: ');
+  readln(tinggi);
+  
+  if tinggi <= 0 then
+  begin
+    WriteLn('Kesalahan.');
+    writeln('Tinggi harus merupakan bilangan bulat positif!');
+    exit;
+  end;
+
+  for i := 1 to tinggi do
+  begin
+    for j := 1 to i do
+    begin
+      write(j);
+    end;
+    writeln;
+  end;
+end.
