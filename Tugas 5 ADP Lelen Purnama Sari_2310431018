@@ -1,0 +1,40 @@
+program CaesarCipher;
+uses crt;
+const
+  ALFABET = 'abcdefghijklmnopqrstuvwxyz';
+
+var
+  k, i: Integer;
+  teks, teks_enkripsi: string;
+
+function EnkripsiKarakter(c: Char; geser: Integer): Char;
+var
+  indeks: Integer;
+begin
+  if (c >= 'a') and (c <= 'z') then
+  begin
+    indeks := Pos(c, ALFABET);
+    indeks := ((indeks - 1 + geser) mod Length(ALFABET)) + 1;
+    EnkripsiKarakter := ALFABET[indeks];
+  end
+  else
+    EnkripsiKarakter := c;
+end;
+
+begin
+  clrscr();
+  writeln('Nama : Lelen Purnama Sari');
+  writeln('Nim : 2310431018');
+  writeln('----------------------------------');
+  writeln('Selamat Datang di Program Caesar Cipher!');
+  Write('Masukkan nilai k (1-26): ');
+  Readln(k);
+  Write('Masukkan teks yang akan di enkripsi: ');
+  Readln(teks);
+
+  teks_enkripsi := '';
+  for i := 1 to Length(teks) do
+    teks_enkripsi := teks_enkripsi + EnkripsiKarakter(teks[i], k);
+
+  Writeln('Teks setelah di enkripsi: ', teks_enkripsi);
+end.
