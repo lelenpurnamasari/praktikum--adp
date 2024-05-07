@@ -1,0 +1,58 @@
+class Penerbangan:
+    def __init__(self, kota_asal, kota_tujuan, waktu_berangkat, waktu_tiba):
+        self.kota_asal = kota_asal
+        self.kota_tujuan = kota_tujuan
+        self.waktu_berangkat = waktu_berangkat
+        self.waktu_tiba = waktu_tiba
+
+    def waktu_tempuh(self):
+        # Hitung waktu tempuh dalam menit
+        berangkat_jam, berangkat_menit = map(int, self.waktu_berangkat.split(':'))
+        tiba_jam, tiba_menit = map(int, self.waktu_tiba.split(':'))
+        return (tiba_jam * 60 + tiba_menit) - (berangkat_jam * 60 + berangkat_menit)
+
+# Definisikan daftar penerbangan
+daftar_penerbangan = [
+    Penerbangan("Kota1", "Kota2", "08:00", "10:00"),
+    Penerbangan("Kota3", "Kota4", "11:00", "13:00"),
+    Penerbangan("Kota5", "Kota6", "14:00", "16:00")
+]
+
+def tampilkan_jadwal():
+    """Menampilkan jadwal penerbangan dalam format tabel"""
+    print("{:<15} | {:<15} | {:<10} | {:<10} | {:<15} |".format("Kota Asal", "Kota Tujuan", "Berangkat", "Tiba", "Waktu Tempuh"))
+    print("-" * 75)
+    for penerbangan in daftar_penerbangan:
+        print("{:<15} | {:<15} | {:<10} | {:<10} | {:<15} |".format(
+            penerbangan.kota_asal, penerbangan.kota_tujuan, 
+            penerbangan.waktu_berangkat, penerbangan.waktu_tiba,
+            f"{penerbangan.waktu_tempuh()} menit"
+        ))
+
+def rute_tercepat(kota_asal, kota_tujuan):
+    """Mencari rute penerbangan tercepat dari kota asal ke kota tujuan"""
+    rute_tercepat = None
+    waktu_tempuh_tercepat = float('inf')
+    for penerbangan in daftar_penerbangan:
+        if penerbangan.kota_asal == kota_asal and penerbangan.kota_tujuan == kota_tujuan:
+            waktu_tempuh = penerbangan.waktu_tempuh()
+            if waktu_tempuh < waktu_tempuh_tercepat:
+                waktu_tempuh_tercepat = waktu_tempuh
+                rute_tercepat = (penerbangan.kota_asal, penerbangan.kota_tujuan, penerbangan.waktu_berangkat, penerbangan.waktu_tiba)
+    return rute_tercepat
+
+# Contoh penggunaan
+tampilkan_jadwal()
+print()
+kota_asal = input("Masukkan kota asal: ")
+kota_tujuan = input("Masukkan kota tujuan: ")
+
+rute = rute_tercepat(kota_asal, kota_tujuan)
+if rute:
+    print("\nRute tercepat dari {} ke {}".format(kota_asal, kota_tujuan))
+    print("Kota asal:", rute[0])
+    print("Kota tujuan:", rute[1])
+    print("Waktu berangkat:", rute[2])
+    print("Waktu tiba:", rute[3])
+else:
+    print("Tidak ada rute langsung antara {} ke {}.".format(kota_asal, kota_tujuan))
