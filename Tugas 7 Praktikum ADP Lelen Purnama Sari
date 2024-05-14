@@ -1,0 +1,51 @@
+Jadwal1 = [["05:00","05:30","Sholat subuh"],["05:30","06:00","Mandi Pagi"],["06:30","07:00","Sarapan"], ["07:00","07:30","Berangkat Kerja"]]
+
+def Jadwal_Awal(jadwal_awal):
+    print("Jadwal Kegiatan Harian Lelen Purnama Sari")
+    print("-" * 60)
+    print("|{:15} | {:15} | {:25}|".format("Waktu mulai", "Waktu selesai", "Deskripsi Kegiatan"))
+    print("-" * 60)
+    for jadwal in jadwal_awal:
+        print("|{:<15} | {:<15} | {:<25}|".format(*jadwal))
+        print("-"*60)
+
+def tambah_kegiatan(Jadwal1, mulai, selesai, deskripsi):
+    kegiatan_baru = [mulai, selesai, deskripsi]
+    Jadwal1.append(kegiatan_baru)
+ 
+def hapus_kegiatan(jadwal, deskripsi):
+    jadwal_baru = [kegiatan for kegiatan in jadwal if kegiatan[2] != deskripsi]
+    if len(jadwal_baru) < len(jadwal):
+        jadwal.clear()
+        jadwal.extend(jadwal_baru)
+
+Jadwal_Awal(Jadwal1)
+
+while True:
+    print("\nMenu")
+    print("1. Tambahkan jadwal")
+    print("2. Hapus jadwal")
+    print("3. Tampilkan jadwal")
+    print("4. Keluar ")
+
+    pilih = int(input("Pilih menu (1/2/3/4) : "))
+
+    if pilih == 1:
+        mulai = input("Masukkan Waktu Mulai Kegiatan : ")
+        selesai = input("Masukkan Waktu Selesai Kegiatan : ")
+        deskripsi = input("Masukkan Deskripsi Kegiatan : ")
+        tambah_kegiatan(Jadwal1, mulai, selesai, deskripsi)
+
+    elif pilih == 2:
+        deskripsi = input("Masukkan deskripsi kegiatan yang ingin dihapus: ")
+        hapus_kegiatan(Jadwal1, deskripsi)
+        
+    elif pilih == 3:
+    	Jadwal_Awal(Jadwal1)
+
+    elif pilih == 4:
+        print("Terimakasih! Sampai jumpa lagi.")
+        break
+        
+    else:
+        print("Pilihan tidak valid.")
