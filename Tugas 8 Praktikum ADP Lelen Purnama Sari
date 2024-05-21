@@ -1,0 +1,64 @@
+print("Nama : Lelen Purnama Sari")
+print("Nim : 2310431018")
+print("----------------------------------------------------")
+print("Selamat datang di program dictionary dan file text!")
+
+def simpan_data(data_pasien):
+    with open("data_pasien.txt", "a") as file:
+        for key, value in data_pasien.items():
+            file.write(f"{key}: {value}\n")
+    print("Data pasien berhasil disimpan.")
+
+def hapus_data(nama_pasien):
+    with open("data_pasien.txt", "r") as file:
+        data_yang_ada = file.readlines()
+
+    with open("data_pasien.txt", "w") as file:
+        for line in data_yang_ada:
+            if not any(value in line for value in nama_pasien.values()):
+                file.write(line)
+    print("Data pasien berhasil dihapus.")
+
+def tampilkan_data():
+    with open("data_pasien.txt", "r") as file:
+        print(file.read())
+
+def main():
+    while True:
+        print("\nMenu:")
+        print("1. Simpan Data Pasien")
+        print("2. Hapus Data Pasien")
+        print("3. Tampilkan Data Pasien")
+        print("4. Keluar")
+
+        pilihan = input("Silahkan pilih menu (1/2/3/4): ")
+
+        if pilihan == "1":
+            nama = input("Masukkan nama pasien: ")
+            umur = int(input("Masukkan umur pasien: "))
+            jenis_kelamin = input("Masukkan jenis kelamin pasien: ")
+            golongan_darah = input("Masukkan golongan darah pasien: ")
+            riwayat_penyakit = input("Masukkan riwayat penyakit pasien : ")
+            daftar_obat = input("Masukkan daftar obat yang diperlukan pasien: ")
+
+            data_pasien = {
+                "Nama": nama,
+                "Umur": umur,
+                "Jenis Kelamin": jenis_kelamin,
+                "Golongan Darah": golongan_darah,
+                "Riwayat Penyakit": riwayat_penyakit,
+                "Daftar Obat": daftar_obat
+            }
+            simpan_data(data_pasien)
+
+        elif pilihan == "2":
+            hapus_data(input("Masukkan nama pasien yang akan dihapus: "))
+
+        elif pilihan == "3":
+            tampilkan_data()
+
+        elif pilihan == "4":
+            break
+
+if __name__ == "__main__":
+    main()
