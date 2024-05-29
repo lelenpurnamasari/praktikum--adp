@@ -1,0 +1,42 @@
+print("Nama: Lelen Purnama Sari")
+print("Nim: 2310431018")
+print("==================")
+print("Bendera Negara Indonesia adalah Bendera Merah Putih")
+print("Di bawah ini adalah gambar bendera merah putih")
+print("")
+
+from termcolor import colored, cprint
+
+for i in range(5):
+	cprint(" "*30,"red","on_red")
+for i in range(5):
+	cprint(" "*30,"white","on_white")
+
+
+print("Nama: Lelen Purnama Sari")
+print("Nim : 2310431018")
+print("======================")
+print("Gambar Rumah Sederhana")
+
+from termcolor import colored
+def gambar_rumah():
+    # Atap rumah
+    print(colored("     ______________________","green"))
+    print(colored("    /\\                     \\", "green"))
+    print(colored("   /  \\                     \\", "green"))
+    print(colored("  /    \\                     \\", "green"))
+    print(colored(" /      \\                     \\", "green"))
+    print(colored("/________\\_____________________\\", "green"))
+        
+    # Badan rumah
+    print(colored("|        |                     |", "red"))
+    print(colored("|   __   |                     |", "red"))
+    print(colored("|  |  |  |                     |", "red"))
+    print(colored("|  |__|  |         _______     |", "red"))
+    print(colored("|        |        |   |   |    |", "red"))
+    print(colored("|        |        |   |   |    |", "red"))
+    print(colored("|        |        |   |   |    |", "red"))
+    
+    # Sisi pintu
+    print(colored("|________|________|___|___|____|", "red"))
+gambar_rumah()
